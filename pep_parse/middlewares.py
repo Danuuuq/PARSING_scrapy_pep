@@ -1,7 +1,5 @@
 from scrapy import signals
 
-from itemadapter import is_item, ItemAdapter
-
 
 class PepParseSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
