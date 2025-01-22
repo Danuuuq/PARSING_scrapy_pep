@@ -1,19 +1,18 @@
 BOT_NAME = 'pep_parse'
 
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
+DIR_FOR_RESULT = 'results'
 
-# Obey robots.txt rules
+NEWSPIDER_MODULE = f'{BOT_NAME}.spiders'
+SPIDER_MODULES = [NEWSPIDER_MODULE]
+
 ROBOTSTXT_OBEY = True
 
-# Configure item pipelines
-# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'pep_parse.pipelines.PepParsePipeline': 300,
 }
 
 FEEDS = {
-    'results/pep_%(time)s.csv': {
+    f'{DIR_FOR_RESULT}/pep_%(time)s.csv': {
         'format': 'csv',
         'fields': ['number', 'name', 'status']
     }

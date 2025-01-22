@@ -73,8 +73,12 @@ scrapy crawl pep
 
 ## Запуск тестов
 
-Если у вас настроены тесты (например, с использованием `pytest`), вы можете запустить их командой:
-
 ```bash
 pytest
 ```
+
+## Автор
+
+Автор проекта: [Даниил](https://github.com/Danuuuq)  
+Связаться через [Telegram](https://t.me/saint_danik)  | [Email](mailto:daniil@tyunkov.ru)  
+README составлен с помощью [ChatGPT](https://chatgpt.com/)
