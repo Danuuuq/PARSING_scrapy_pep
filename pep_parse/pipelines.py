@@ -19,11 +19,18 @@ class PepParsePipeline:
     def close_spider(self, spider):
         date = dt.strftime(dt.now(), '%Y-%m-%d_%H-%M-%S')
         filename = os.path.join(self.output_dir, f'status_summary_{date}.csv')
-        self.result['Total'] = sum(self.result.values())
+        # self.result['Total'] = sum(self.result.values())
         with open(filename, mode='w', encoding='UTF-8', newline='') as csvfile:
-            fields = ['Статус', 'Количество']
-            rows = [{fields[0]: status, fields[1]: count}
-                    for status, count in self.result.items()]
-            writer = csv.DictWriter(csvfile, fieldnames=fields)
-            writer.writeheader()
+            breakpoint()
+            # fields = ['Статус', 'Количество']
+            # rows = [{fields[0]: status, fields[1]: count}
+            #         for status, count in self.result.items()]
+            # writer = csv.DictWriter(csvfile, fieldnames=fields)
+            rows = (
+                ('Статус', 'Количество'),
+                *self.result.items(),
+                ('Total', sum(self.result.values()))
+            )
+            writer = csv.DictWriter(csvfile)
+            # writer.writeheader()
             writer.writerows(rows)
